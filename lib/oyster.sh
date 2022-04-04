@@ -5,6 +5,7 @@ set -euo pipefail
 # shellcheck disable=SC2155
 readonly OYSTER_LIB_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
+# shellcheck source=./const.sh
 source "$OYSTER_LIB_DIR/const.sh"
 
 function oy::version() {
