@@ -1,4 +1,7 @@
 {
   "editor.formatOnSave": true,
-  "shellcheck.customArgs": ["-x"]
+  "shellcheck.customArgs": ["-x"],
+  "files.associations": {
+    "Makefile.dist": "makefile"
+  }
 }

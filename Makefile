@@ -1,6 +1,5 @@
 DIST_NAME = oyster
-DIST_VERSION = 1.0.0
-
+DIST_VERSION := $(shell git describe --always --tags --dirty)
 ARCHIVE_BASE := $(DIST_NAME)-$(DIST_VERSION:v%=%)
 
 build:
@@ -16,10 +15,13 @@ build:
 dist: build
 	mkdir $(ARCHIVE_BASE)
 	cp -r lib/* $(ARCHIVE_BASE)/
-	cp Makefile $(ARCHIVE_BASE)/
+	cp Makefile.dist $(ARCHIVE_BASE)/Makefile
 	cp README.md $(ARCHIVE_BASE)/
 	tar -czf $(ARCHIVE_BASE).tar.gz $(ARCHIVE_BASE)
 	rm -rf $(ARCHIVE_BASE)
+
+distpath:
+	@echo $(ARCHIVE_BASE).tar.gz
 
 install:
 	ln -s $(PWD)/lib/oyster /usr/local/bin/oyster
@@ -40,5 +42,5 @@ lint:
 		cd ..
 
 uninstall:
-	unlink $(HOME)/bin/oyster || true
 	unlink /usr/local/bin/oyster || true
+	unlink $(HOME)/bin/oyster || true

@@ -1,0 +1,9 @@
+install:
+	ln -s $(PWD)/oyster /usr/local/bin/oyster
+
+install_user:
+	ln -s $(PWD)/oyster $(HOME)/bin/oyster
+
+uninstall:
+	unlink /usr/local/bin/oyster || true
+	unlink $(HOME)/bin/oyster || true
