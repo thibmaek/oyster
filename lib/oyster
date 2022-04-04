@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -o errtrace # Exit on error inside any functions or sub-shells
+set -euo pipefail
+
+export __OYSTER_BIN
+export __OYSTER_LIB_DIR
+__OYSTER_BIN=$(readlink -f "${BASH_SOURCE[0]}")
+__OYSTER_LIB_DIR=$(dirname "$__OYSTER_BIN")
+
+# shellcheck source=./oyster.sh
+source "$__OYSTER_LIB_DIR/oyster.sh"
+
+if [ "$1" == "--upgrade" ]; then
+  echo "Upgrading oyster..."
+  exit 0
+fi
+
+if [ "$1" == "--version" ]; then
+  echo "oyster version: $OYSTER_VERSION"
+  exit 0
+fi
+
+if [ "$1" == "--help" ]; then
+  echo "Usage: oyster [--upgrade] [--version] [--help] [--where] [command] [args]"
+  echo "  --upgrade: Upgrade oyster to the latest version"
+  echo "  --version: Print the version of oyster"
+  echo "  --help: Print this help message"
+  echo "  --where: Print the path to oyster"
+  exit 0
+fi
+
+if [ "$1" == "--where" ]; then
+  echo "$__OYSTER_BIN"
+  exit 0
+fi
+
+# Execute source
+# shellcheck source=/dev/null
+source "$@"
