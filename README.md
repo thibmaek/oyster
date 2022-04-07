@@ -1,9 +1,10 @@
 # Oyster
 
 <!-- Banner & Badges. Badges should have newlines -->
-![bash version 5](https://img.shields.io/badge/bash%20version-GNU%20bash%205-brightgreen.svg?style=flat-square)
-![Latest release](https://img.shields.io/github/downloads/thibmaek/oyster/latest/total?style=flat-square)
-![shellcheck0](https://img.shields.io/badge/linting-shellcheck-brightgreen.svg?style=flat-square)
+![bash version 5](https://img.shields.io/badge/bash%20version-GNU%20bash%205-brightgreen.svg)
+![Latest release](https://badgen.net/github/release/thibmaek/oyster)
+![Build status](https://github.com/thibmaek/oyster/workflows/CI/badge.svg)
+![License](https://img.shields.io/github/license/thibmaek/oyster.svg)
 
 The shell is your oyster!
 
@@ -32,12 +33,22 @@ $ oy::str.upper "$1"
 
 ## Install
 
+### Automatic install
+
+A convenience install script is provided so you can directly install from the command line:
+
+```console
+$ curl -fsSL https://github.com/thibmaek/oyster/raw/main/install.sh | bash -
+```
+
+### Manually
+
 Download the [latest release](https://github.com/thibmaek/oyster/releases) from the releases page and put somewhere on your filesystem:
 
 ```console
-$ mkdir -p ~/.oyster
+$ mkdir -p /usr/local/opt/oyster
 $ curl https://github.com/thibmaek/oyster/releases/download/v1.0.0/oyster-1.0.0.tar.gz -o oyster.tar.gz
-$ tar xvf oyster-1.0.0 -C ~/.oyster && cd ~/.oyster
+$ tar xvf oyster-1.0.0 -C /usr/local/opt/oyster && cd /usr/local/opt/oyster/oyster-1.0.0
 $ make install
 ```
 
@@ -67,20 +78,22 @@ oy::str.upper "uppercase me"
 
 ### Sourcing oyster from a regular bash script
 
-If you want to bypass executing scripts via oyster you can also just source oyster's 'module' in your own scripts to make the utilities available.
+If you want to bypass executing scripts via oyster you can also just source oyster's 'module' in your own scripts to make the utilities available:
 
 ```bash
 #!/usr/bin/env bash
 set -e
 
-source ""
+source "$(oyster --where).sh"
 ```
 
 ## API
 
 ### Thanks
-<!-- - State anyone or anything that significantly helped with the development of your project.
-- State public contact hyper-links if applicable. -->
+
+A lot of this is prior art from the Home Assistant team. They created [Bashio](https://github.com/hassio-addons/bashio) which provides the base modular layer that oyster also uses.
+
+Their usage however is more steered towards creating a library for usage within Home Assistant add-ons where oyster sets itself apart as a general purpose bash scripting library.
 
 ## Contributing
 
