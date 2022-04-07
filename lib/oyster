@@ -16,7 +16,7 @@ if [ "$1" == "--upgrade" ]; then
 fi
 
 if [ "$1" == "--version" ]; then
-  echo "oyster version: $OYSTER_VERSION"
+  echo "🦪  oyster version: $OYSTER_VERSION"
   exit 0
 fi
 
