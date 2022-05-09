@@ -47,8 +47,8 @@ Download the [latest release](https://github.com/thibmaek/oyster/releases) from 
 
 ```console
 $ mkdir -p /usr/local/opt/oyster
-$ curl https://github.com/thibmaek/oyster/releases/download/v1.0.0/oyster-1.0.0.tar.gz -o oyster.tar.gz
-$ tar xvf oyster-1.0.0 -C /usr/local/opt/oyster && cd /usr/local/opt/oyster/oyster-1.0.0
+$ curl https://github.com/thibmaek/oyster/releases/download/v1.1.0/oyster-1.1.0.tar.gz -o oyster.tar.gz
+$ tar xvf oyster-1.1.0 -C /usr/local/opt/oyster && cd /usr/local/opt/oyster/oyster-1.1.0
 $ make install
 ```
 
@@ -57,8 +57,8 @@ This will install oyster in `/usr/local/bin/oyster`. If you have `~/bin` sourced
 Confirm your installation worked (after rehashing your shell):
 
 ```console
-$ osyter --version
-oyster version: 1.0.0
+$ oyster --version
+oyster version: 1.1.0
 ```
 
 > Because Oyster is a pure Bash implementation putting it in `/usr/local/bin` or anywhere else known to the shell PATH will merely act as a symlink under the hood. If `~/.oyster` is deleted, Oyster will stop working because the symlink breaks.
