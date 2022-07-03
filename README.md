@@ -47,8 +47,8 @@ Download the [latest release](https://github.com/thibmaek/oyster/releases) from 
 
 ```console
 $ mkdir -p /usr/local/opt/oyster
-$ curl https://github.com/thibmaek/oyster/releases/download/v1.1.0/oyster-1.1.0.tar.gz -o oyster.tar.gz
-$ tar xvf oyster-1.1.0 -C /usr/local/opt/oyster && cd /usr/local/opt/oyster/oyster-1.1.0
+$ curl -O https://github.com/thibmaek/oyster/releases/download/v1.1.0/oyster-1.1.0.tar.gz
+$ tar xvf oyster-1.1.0.tar.gz -C /usr/local/opt/oyster && cd /usr/local/opt/oyster/oyster-1.1.0
 $ make install
 ```
 
